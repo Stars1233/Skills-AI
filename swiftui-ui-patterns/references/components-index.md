@@ -13,6 +13,7 @@ Use this file to find component-specific guidance. Each entry lists when to use 
 - Split views and columns: `references/split-views.md` — Use for iPad/macOS multi-column layouts or custom secondary columns.
 - List and Section: `references/list.md` — Use for feed-style content and settings rows.
 - ScrollView and Lazy stacks: `references/scrollview.md` — Use for custom layouts, horizontal scrollers, or grids.
+- Scroll-reveal detail surfaces: `references/scroll-reveal.md` — Use when a detail screen reveals secondary content or actions as the user scrolls or swipes between full-screen sections.
 - Grids: `references/grids.md` — Use for icon pickers, media galleries, and tiled layouts.
 - Theming and dynamic type: `references/theming.md` — Use for app-wide theme tokens, colors, and type scaling.
 - Controls (toggles, pickers, sliders): `references/controls.md` — Use for settings controls and input selection.

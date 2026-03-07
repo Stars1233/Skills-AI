@@ -15,6 +15,7 @@ Choose a track based on your goal:
 - Find a nearby example in the repo with `rg "TabView\("` or similar, then read the closest SwiftUI view.
 - Apply local conventions: prefer SwiftUI-native state, keep state local when possible, and use environment injection for shared dependencies.
 - Choose the relevant component reference from `references/components-index.md` and follow its guidance.
+- If the interaction reveals secondary content by dragging or scrolling the primary content away, read `references/scroll-reveal.md` before implementing gestures manually.
 - Build the view with small, focused subviews and SwiftUI-native data flow.
 
 ### New project scaffolding
@@ -32,6 +33,7 @@ Choose a track based on your goal:
 - Maintain existing legacy patterns only when editing legacy files.
 - Follow the project's formatter and style guide.
 - **Sheets**: Prefer `.sheet(item:)` over `.sheet(isPresented:)` when state represents a selected model. Avoid `if let` inside a sheet body. Sheets should own their actions and call `dismiss()` internally instead of forwarding `onCancel`/`onConfirm` closures.
+- **Scroll-driven reveals**: Prefer deriving a normalized progress value from scroll offset and driving the visual state from that single source of truth. Avoid parallel gesture state machines unless scroll alone cannot express the interaction.
 
 ## Workflow for a new SwiftUI view
 
@@ -49,6 +51,8 @@ Use `references/components-index.md` as the entry point. Each component referenc
 - Minimal usage pattern with local conventions.
 - Pitfalls and performance notes.
 - Paths to existing examples in the current repo.
+
+For detail surfaces that progressively reveal actions, metadata, or contextual panels, use `references/scroll-reveal.md`.
 
 ## Sheet patterns
 
