@@ -1,6 +1,6 @@
 ---
 name: swiftui-ui-patterns
-description: Best practices and example-driven guidance for building SwiftUI views and components. Use when creating or refactoring SwiftUI UI, designing tab architecture with TabView, composing screens, or needing component-specific patterns and examples.
+description: Best practices and example-driven guidance for building SwiftUI views and components, including navigation hierarchies, custom view modifiers, and responsive layouts with stacks and grids. Use when creating or refactoring SwiftUI UI, designing tab architecture with TabView, composing screens with VStack/HStack, managing @State or @Binding, building declarative iOS interfaces, or needing component-specific patterns and examples.
 ---
 
 # SwiftUI UI Patterns
@@ -39,10 +39,10 @@ Choose a track based on your goal:
 
 1. Define the view's state and its ownership location.
 2. Identify dependencies to inject via `@Environment`.
-3. Sketch the view hierarchy and extract repeated parts into subviews.
+3. Sketch the view hierarchy and extract repeated parts into subviews. **Build and verify no compiler errors before proceeding.**
 4. Implement async loading with `.task` and explicit state enum if needed.
 5. Add accessibility labels or identifiers when the UI is interactive.
-6. Validate with a build and update usage callsites if needed.
+6. Validate with a build: confirm no compiler errors, check that previews render without crashing, and ensure state changes propagate correctly. For common SwiftUI compilation errors — missing `@State` annotations, ambiguous `ViewBuilder` closures, or mismatched generic types — resolve them before updating callsites. **If the build fails:** read the error message carefully, fix the identified issue, then rebuild before proceeding to the next step. If a preview crashes, isolate the offending subview, confirm its state initialisation is valid, and re-run the preview before continuing.
 
 ## Component references
 

@@ -1,6 +1,6 @@
 ---
 name: swiftui-view-refactor
-description: Refactor and review SwiftUI view files for consistent structure, dependency injection, and Observation usage. Use when asked to clean up a SwiftUI view’s layout/ordering, handle view models safely (non-optional when possible), or standardize how dependencies and @Observable state are initialized and passed.
+description: Refactor and review SwiftUI view files for consistent structure, dependency injection, and Observation usage. Use when asked to clean up a SwiftUI view's layout/ordering, handle view models safely (non-optional when possible), or standardize how dependencies and @Observable state are initialized and passed.
 ---
 
 # SwiftUI View Refactor
@@ -28,23 +28,11 @@ Apply a consistent structure and dependency pattern to SwiftUI views, with a foc
 
 ### 3) Split large bodies and view properties
 - If `body` grows beyond a screen or has multiple logical sections, split it into smaller subviews.
-- Extract large computed view properties (`var header: some View { ... }`) into dedicated `View` types when they carry state or complex branching.
-- It's fine to keep related subviews as computed view properties in the same file; extract to a standalone `View` struct only when it structurally makes sense or when reuse is intended.
+- Extract large computed view properties into dedicated `View` types when they carry state or complex branching.
+- Keep related subviews as computed view properties in the same file; extract to a standalone `View` struct only when reuse is intended or it structurally makes sense.
 - Prefer passing small inputs (data, bindings, callbacks) over reusing the entire parent view state.
 
-Example (extracting a section):
-
-```swift
-var body: some View {
-    VStack(alignment: .leading, spacing: 16) {
-        HeaderSection(title: title, isPinned: isPinned)
-        DetailsSection(details: details)
-        ActionsSection(onSave: onSave, onCancel: onCancel)
-    }
-}
-```
-
-Example (long body → shorter body + computed views in the same file):
+Example (long body → shorter body + computed views):
 
 ```swift
 var body: some View {
@@ -75,7 +63,7 @@ private var filters: some View {
 }
 ```
 
-Example (extracting a complex computed view):
+Example (extracting a complex computed view into a dedicated struct):
 
 ```swift
 private var header: some View {
@@ -98,9 +86,9 @@ private struct HeaderSection: View {
 ```
 
 ### 3b) Keep a stable view tree (avoid top-level conditional view swapping)
-- Avoid patterns where a computed view (or `body`) returns completely different root branches using `if/else`.
-- Prefer a single stable base view, and place conditions inside sections/modifiers (`overlay`, `opacity`, `disabled`, `toolbar`, row content, etc.).
-- Root-level branch swapping can cause identity churn, broader invalidation, and extra recomputation in SwiftUI.
+- Avoid `body` or computed views that return completely different root branches via `if/else`.
+- Prefer a single stable base view with conditions inside sections/modifiers (`overlay`, `opacity`, `disabled`, `toolbar`, etc.).
+- Root-level branch swapping causes identity churn, broader invalidation, and extra recomputation.
 
 Prefer:
 
@@ -151,12 +139,12 @@ init(dependency: Dependency) {
 
 ## Workflow
 
-1) Reorder the view to match the ordering rules.
-2) Favor MV: move lightweight orchestration into the view using `@State`, `@Environment`, `@Query`, `task`, and `onChange`.
-3) Ensure stable view structure: avoid top-level `if`-based branch swapping; move conditions to localized sections/modifiers.
-4) If a view model exists, replace optional view models with a non-optional `@State` view model initialized in `init` by passing dependencies from the view.
-5) Confirm Observation usage: `@State` for root `@Observable` view models, no redundant wrappers.
-6) Keep behavior intact: do not change layout or business logic unless requested.
+1. Reorder the view to match the ordering rules.
+2. Favor MV: move lightweight orchestration into the view using `@State`, `@Environment`, `@Query`, `task`, and `onChange`.
+3. Ensure stable view structure: avoid top-level `if`-based branch swapping; move conditions to localized sections/modifiers.
+4. If a view model exists, replace optional view models with a non-optional `@State` view model initialized in `init` by passing dependencies from the view.
+5. Confirm Observation usage: `@State` for root `@Observable` view models, no redundant wrappers.
+6. Keep behavior intact: do not change layout or business logic unless requested.
 
 ## Notes
 
@@ -166,4 +154,4 @@ init(dependency: Dependency) {
 
 ## Large-view handling
 
-- When a SwiftUI view file exceeds ~300 lines, split it using extensions to group related helpers. Move async functions and helper functions into dedicated `private` extensions, separated with `// MARK: -` comments that describe their purpose (e.g., `// MARK: - Actions`, `// MARK: - Subviews`, `// MARK: - Helpers`). Keep the main `struct` focused on stored properties, init, and `body`, with view-building computed vars also grouped via marks when the file is long.
+When a SwiftUI view file exceeds ~300 lines, split it using extensions to group related helpers. Move async and helper functions into dedicated `private` extensions separated with `// MARK: -` comments (e.g., `// MARK: - Actions`, `// MARK: - Subviews`, `// MARK: - Helpers`). Keep the main `struct` focused on stored properties, `init`, and `body`.

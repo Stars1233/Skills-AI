@@ -24,6 +24,8 @@ Follow this sequence unless the user asks for a narrower action.
 
 ### 3) Build + run (when requested)
 - Call `mcp__XcodeBuildMCP__build_run_sim`.
+- **If the build fails**, check the error output and retry (optionally with `preferXcodebuild: true`) or escalate to the user before attempting any UI interaction.
+- **After a successful build**, verify the app launched by calling `mcp__XcodeBuildMCP__describe_ui` or `mcp__XcodeBuildMCP__screenshot` before proceeding to UI interaction.
 - If the app is already built and only launch is requested, use `mcp__XcodeBuildMCP__launch_app_sim`.
 - If bundle id is unknown:
   1) `mcp__XcodeBuildMCP__get_sim_app_path`

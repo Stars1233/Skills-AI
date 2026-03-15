@@ -30,8 +30,35 @@ Generate a comprehensive, user-facing changelog from git history since the last 
 - Check for duplicates and overly technical wording.
 - Ask for clarification if any change is ambiguous or possibly internal-only.
 
+## Commit-to-Bullet Examples
+
+The following shows how raw commits are translated into App Store bullets:
+
+| Raw commit message | App Store bullet |
+|---|---|
+| `fix(auth): resolve token refresh race condition on iOS 17` | • Fixed a login issue that could leave some users unexpectedly signed out. |
+| `feat(search): add voice input to search bar` | • Search your library hands-free with the new voice input option. |
+| `perf(timeline): lazy-load images to reduce scroll jank` | • Scrolling through your timeline is now smoother and faster. |
+
+Internal-only commits that are **dropped** (no user impact):
+- `chore: upgrade fastlane to 2.219`
+- `refactor(network): extract URLSession wrapper into module`
+- `ci: add nightly build job`
+
+## Example Output
+
+```
+What's New in Version 3.4
+
+• Search your library hands-free with the new voice input option.
+• Scrolling through your timeline is now smoother and faster.
+• Fixed a login issue that could leave some users unexpectedly signed out.
+• Added dark-mode support to the settings screen.
+• Improved load times when opening large photo albums.
+```
+
 ## Output Format
-- Title (optional): "What’s New" or product name + version.
+- Title (optional): "What's New" or product name + version.
 - Bullet list only; one sentence per bullet.
 - Stick to storefront limits if the user provides one.
 
