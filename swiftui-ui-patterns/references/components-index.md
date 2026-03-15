@@ -1,13 +1,12 @@
 # Components Index
 
-Use this file to find component-specific guidance. Each entry lists when to use it.
+Use this file to find component and cross-cutting guidance. Each entry lists when to use it.
 
 ## Available components
 
 - TabView: `references/tabview.md` — Use when building a tab-based app or any tabbed feature set.
 - NavigationStack: `references/navigationstack.md` — Use when you need push navigation and programmatic routing, especially per-tab history.
 - Sheets and modal routing: `references/sheets.md` — Use when you want centralized, enum-driven sheet presentation.
-- App wiring and dependency graph: `references/app-wiring.md` — Use to wire TabView + NavigationStack + sheets at the root and install global dependencies.
 - Form and Settings: `references/form.md` — Use for settings, grouped inputs, and structured data entry.
 - macOS Settings: `references/macos-settings.md` — Use when building a macOS Settings window with SwiftUI's Settings scene.
 - Split views and columns: `references/split-views.md` — Use for iPad/macOS multi-column layouts or custom secondary columns.
@@ -30,6 +29,13 @@ Use this file to find component-specific guidance. Each entry lists when to use 
 - Menu bar commands: `references/menu-bar.md` — Use when adding or customizing macOS/iPadOS menu bar commands.
 - Loading & placeholders: `references/loading-placeholders.md` — Use for redacted skeletons, empty states, and loading UX.
 - Lightweight clients: `references/lightweight-clients.md` — Use for small, closure-based API clients injected into stores.
+
+## Cross-cutting references
+
+- App wiring and dependency graph: `references/app-wiring.md` — Use to wire the app shell, install shared dependencies, and decide what belongs in the environment.
+- Async state and task lifecycle: `references/async-state.md` — Use when a view loads data, reacts to changing input, or needs cancellation/debouncing guidance.
+- Previews: `references/previews.md` — Use when adding `#Preview`, fixtures, mock environments, or isolated preview setup.
+- Performance guardrails: `references/performance.md` — Use when a screen is large, scroll-heavy, frequently updated, or showing signs of avoidable re-renders.
 
 ## Planned components (create files as needed)
 
