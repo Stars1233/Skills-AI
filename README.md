@@ -2,27 +2,30 @@
 
 # Skills Public
 
-A collection of reusable development skills for Apple platforms, GitHub workflows, React performance work, and skill curation.
+A collection of reusable development skills for Apple platforms, GitHub workflows, refactoring, code review, React performance work, and skill curation.
 
 ## Overview
 
-This repository contains focused, self-contained skills that help with recurring engineering tasks such as generating App Store release notes, debugging iOS apps, improving SwiftUI and React code, packaging macOS apps, and auditing what new skills a project actually needs.
+This repository contains focused, self-contained skills that help with recurring engineering tasks such as generating App Store release notes, debugging iOS apps, improving SwiftUI and React code, packaging macOS apps, reviewing and simplifying code changes, orchestrating larger refactors, and auditing what new skills a project actually needs.
 
 Install: place these skill folders under `$CODEX_HOME/skills`
 
 
 ## Skills
 
-This repo currently includes 11 skills:
+This repo currently includes 14 skills:
 
 | Skill | Folder | Description |
 | --- | --- | --- |
 | App Store Changelog | `app-store-changelog` | Creates user-facing App Store release notes from git history by collecting changes since the last tag, filtering for user-visible work, and rewriting it into concise "What's New" bullets. |
 | GitHub | `github` | Uses the `gh` CLI to inspect and operate on GitHub issues, pull requests, workflow runs, and API data, including CI checks, run logs, and advanced queries. |
 | iOS Debugger Agent | `ios-debugger-agent` | Uses XcodeBuildMCP to build, launch, and debug the current iOS app on a booted simulator, including UI inspection, interaction, screenshots, and log capture. |
+| macOS Menubar Tuist App | `macos-menubar-tuist-app` | Builds, refactors, or reviews macOS menubar apps that use Tuist and SwiftUI, with emphasis on manifest ownership, store-layer architecture, and reliable local launch scripts. |
 | macOS SwiftPM App Packaging (No Xcode) | `macos-spm-app-packaging` | Scaffolds, builds, packages, signs, and optionally notarizes SwiftPM-based macOS apps without requiring an Xcode project. |
+| Orchestrate Batch Refactor | `orchestrate-batch-refactor` | Plans and executes larger refactor or rewrite efforts with dependency-aware parallel analysis and implementation using clearly scoped work packets. |
 | Project Skill Audit | `project-skill-audit` | Analyzes a project's past Codex sessions, memory, existing local skills, and conventions to recommend the highest-value new skills or updates to existing ones. |
 | React Component Performance | `react-component-performance` | Diagnoses slow React components by finding re-render churn, expensive render work, unstable props, and list bottlenecks, then suggests targeted optimizations and validation steps. |
+| Simplify Code | `simplify-code` | Reviews a git diff or explicit file scope for reuse, code quality, efficiency, clarity, and standards issues, then optionally applies safe, behavior-preserving fixes. |
 | Swift Concurrency Expert | `swift-concurrency-expert` | Reviews and fixes Swift 6.2+ concurrency issues such as actor isolation problems, `Sendable` violations, main-actor annotations, and data-race diagnostics. |
 | SwiftUI Liquid Glass | `swiftui-liquid-glass` | Implements, reviews, or refactors SwiftUI features to use the iOS 26+ Liquid Glass APIs correctly, with proper modifier ordering, grouping, interactivity, and fallbacks. |
 | SwiftUI Performance Audit | `swiftui-performance-audit` | Audits SwiftUI runtime performance from code and architecture, focusing on invalidation storms, identity churn, layout thrash, heavy render work, and profiling guidance. |
