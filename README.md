@@ -2,18 +2,18 @@
 
 # Skills Public
 
-A collection of reusable development skills for Apple platforms, GitHub workflows, refactoring, diff review swarms, code review, React performance work, and skill curation.
+A collection of reusable development skills for Apple platforms, GitHub workflows, refactoring, diff review swarms, bug investigation swarms, code review, React performance work, and skill curation.
 
 ## Overview
 
-This repository contains focused, self-contained skills that help with recurring engineering tasks such as generating App Store release notes, debugging iOS apps, improving SwiftUI and React code, packaging macOS apps, running multi-agent diff reviews, reviewing and simplifying code changes, orchestrating larger refactors, and auditing what new skills a project actually needs.
+This repository contains focused, self-contained skills that help with recurring engineering tasks such as generating App Store release notes, debugging iOS apps, improving SwiftUI and React code, packaging macOS apps, running multi-agent diff reviews and bug hunts, reviewing and simplifying code changes, orchestrating larger refactors, and auditing what new skills a project actually needs.
 
 Install: place these skill folders under `$CODEX_HOME/skills`
 
 
 ## Skills
 
-This repo currently includes 15 skills:
+This repo currently includes 16 skills:
 
 | Skill | Folder | Description |
 | --- | --- | --- |
@@ -25,6 +25,7 @@ This repo currently includes 15 skills:
 | Orchestrate Batch Refactor | `orchestrate-batch-refactor` | Plans and executes larger refactor or rewrite efforts with dependency-aware parallel analysis and implementation using clearly scoped work packets. |
 | Project Skill Audit | `project-skill-audit` | Analyzes a project's past Codex sessions, memory, existing local skills, and conventions to recommend the highest-value new skills or updates to existing ones. |
 | React Component Performance | `react-component-performance` | Diagnoses slow React components by finding re-render churn, expensive render work, unstable props, and list bottlenecks, then suggests targeted optimizations and validation steps. |
+| Bug Hunt Swarm | `bug-hunt-swarm` | Runs a read-only four-agent bug investigation focused on reproduction, code-path tracing, regressors, and the fastest proof step, then returns a ranked root-cause path. |
 | Review and Simplify Changes | `review-and-simplify-changes` | Reviews a git diff or explicit file scope for reuse, code quality, efficiency, clarity, and standards issues, then optionally applies safe, behavior-preserving fixes. |
 | Review Swarm | `review-swarm` | Runs a read-only four-agent diff review focused on behavioral regressions, security risks, performance or reliability issues, and contract or test coverage gaps, then returns a prioritized fix path. |
 | Swift Concurrency Expert | `swift-concurrency-expert` | Reviews and fixes Swift 6.2+ concurrency issues such as actor isolation problems, `Sendable` violations, main-actor annotations, and data-race diagnostics. |
