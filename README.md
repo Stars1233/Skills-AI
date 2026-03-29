@@ -2,18 +2,18 @@
 
 # Skills Public
 
-A collection of reusable development skills for Apple platforms, GitHub workflows, refactoring, code review, React performance work, and skill curation.
+A collection of reusable development skills for Apple platforms, GitHub workflows, refactoring, diff review swarms, code review, React performance work, and skill curation.
 
 ## Overview
 
-This repository contains focused, self-contained skills that help with recurring engineering tasks such as generating App Store release notes, debugging iOS apps, improving SwiftUI and React code, packaging macOS apps, reviewing and simplifying code changes, orchestrating larger refactors, and auditing what new skills a project actually needs.
+This repository contains focused, self-contained skills that help with recurring engineering tasks such as generating App Store release notes, debugging iOS apps, improving SwiftUI and React code, packaging macOS apps, running multi-agent diff reviews, reviewing and simplifying code changes, orchestrating larger refactors, and auditing what new skills a project actually needs.
 
 Install: place these skill folders under `$CODEX_HOME/skills`
 
 
 ## Skills
 
-This repo currently includes 14 skills:
+This repo currently includes 15 skills:
 
 | Skill | Folder | Description |
 | --- | --- | --- |
@@ -26,6 +26,7 @@ This repo currently includes 14 skills:
 | Project Skill Audit | `project-skill-audit` | Analyzes a project's past Codex sessions, memory, existing local skills, and conventions to recommend the highest-value new skills or updates to existing ones. |
 | React Component Performance | `react-component-performance` | Diagnoses slow React components by finding re-render churn, expensive render work, unstable props, and list bottlenecks, then suggests targeted optimizations and validation steps. |
 | Review and Simplify Changes | `review-and-simplify-changes` | Reviews a git diff or explicit file scope for reuse, code quality, efficiency, clarity, and standards issues, then optionally applies safe, behavior-preserving fixes. |
+| Review Swarm | `review-swarm` | Runs a read-only four-agent diff review focused on behavioral regressions, security risks, performance or reliability issues, and contract or test coverage gaps, then returns a prioritized fix path. |
 | Swift Concurrency Expert | `swift-concurrency-expert` | Reviews and fixes Swift 6.2+ concurrency issues such as actor isolation problems, `Sendable` violations, main-actor annotations, and data-race diagnostics. |
 | SwiftUI Liquid Glass | `swiftui-liquid-glass` | Implements, reviews, or refactors SwiftUI features to use the iOS 26+ Liquid Glass APIs correctly, with proper modifier ordering, grouping, interactivity, and fallbacks. |
 | SwiftUI Performance Audit | `swiftui-performance-audit` | Audits SwiftUI runtime performance from code and architecture, focusing on invalidation storms, identity churn, layout thrash, heavy render work, and profiling guidance. |
